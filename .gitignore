@@ -1,0 +1,29 @@
+# env & secrets
+.env
+.env
+.env.*
+frontend/.env.local
+
+node_modules/
+*.log
+*.db
+
+
+
+# logs
+*.log
+
+# database files
+*.db
+*.db-journal
+
+# node modules (if frontend/backend uses npm)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# build files
+dist/
+build/

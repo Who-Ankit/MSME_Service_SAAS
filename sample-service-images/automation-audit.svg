@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Automation audit service artwork">
+  <defs>
+    <linearGradient id="bg" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#155e75" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)" rx="36" />
+  <circle cx="950" cy="140" r="110" fill="#f97316" fill-opacity="0.9" />
+  <circle cx="1030" cy="530" r="140" fill="#14b8a6" fill-opacity="0.55" />
+  <rect x="90" y="120" width="490" height="410" rx="34" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.22" />
+  <text x="120" y="210" fill="#f8fafc" font-family="Segoe UI, Arial, sans-serif" font-size="68" font-weight="700">Automation</text>
+  <text x="120" y="290" fill="#f8fafc" font-family="Segoe UI, Arial, sans-serif" font-size="68" font-weight="700">Audit</text>
+  <text x="120" y="360" fill="#cbd5e1" font-family="Segoe UI, Arial, sans-serif" font-size="28">Find missed follow-ups, broken CRM handoffs,</text>
+  <text x="120" y="402" fill="#cbd5e1" font-family="Segoe UI, Arial, sans-serif" font-size="28">and pipeline leaks before they cost revenue.</text>
+  <rect x="120" y="450" width="220" height="56" rx="28" fill="#f97316" />
+  <text x="174" y="487" fill="#fff7ed" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Book Now</text>
+</svg>

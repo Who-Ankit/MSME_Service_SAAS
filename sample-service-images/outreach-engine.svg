@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Outreach engine service artwork">
+  <defs>
+    <linearGradient id="bg3" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#7c2d12" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg3)" rx="36" />
+  <path d="M120 220h420c40 0 72 32 72 72v145c0 40-32 72-72 72H120z" fill="#fff7ed" fill-opacity="0.08" />
+  <path d="M690 110h390c0 0-42 140-156 198 108 56 156 202 156 202H690c-40 0-72-32-72-72V182c0-40 32-72 72-72z" fill="#fdba74" fill-opacity="0.14" />
+  <text x="150" y="310" fill="#f8fafc" font-family="Segoe UI, Arial, sans-serif" font-size="74" font-weight="700">Outbound</text>
+  <text x="150" y="394" fill="#f8fafc" font-family="Segoe UI, Arial, sans-serif" font-size="74" font-weight="700">Engine</text>
+  <text x="150" y="470" fill="#fed7aa" font-family="Segoe UI, Arial, sans-serif" font-size="28">Messaging, follow-ups, and offer positioning tuned for replies.</text>
+</svg>

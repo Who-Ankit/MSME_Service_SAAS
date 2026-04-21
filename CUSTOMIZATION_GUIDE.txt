@@ -1,0 +1,490 @@
+AI LEAD AGENT - CUSTOMIZATION GUIDE
+==================================
+
+This file explains where to change what in the project.
+All paths below are local project paths under:
+
+D:\LinkedINAIAgent\ai-lead-agent
+
+
+1. MOST COMMON CHANGES
+======================
+
+1.1 Change admin username and password
+File:
+D:\LinkedINAIAgent\ai-lead-agent\frontend\config\admin.config.ts
+
+Edit:
+- username
+- password
+- sessionToken
+
+
+1.2 Change backend/frontend base URL
+File:
+D:\LinkedINAIAgent\ai-lead-agent\.env
+
+Edit:
+- NEXT_PUBLIC_API_BASE_URL
+
+Example:
+NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8001
+
+After changing it:
+- restart frontend
+- restart backend
+
+
+1.3 Change local service image storage folder
+File:
+D:\LinkedINAIAgent\ai-lead-agent\.env
+
+Edit:
+- SERVICE_IMAGE_DIR
+
+Example:
+SERVICE_IMAGE_DIR=D:/LinkedINAIAgent/ai-lead-agent/service-assets
+
+Important:
+- images are saved in this local folder
+- database stores only image_path
+- image files are NOT stored in SQLite
+
+
+1.4 Change database file location
+File:
+D:\LinkedINAIAgent\ai-lead-agent\.env
+
+Edit:
+- DATABASE_URL
+
+Example:
+DATABASE_URL=sqlite:///./leads.db
+
+
+2. AI CUSTOMIZATION
+===================
+
+2.1 Change AI provider
+File:
+D:\LinkedINAIAgent\ai-lead-agent\.env
+
+Edit:
+- LLM_PROVIDER
+
+Supported project setup:
+- gemini
+- openai
+
+
+2.2 Change AI model
+File:
+D:\LinkedINAIAgent\ai-lead-agent\.env
+
+Edit:
+- LLM_MODEL
+
+Examples:
+- model/gemini-2.5-flash
+- gpt-4o-mini
+
+
+2.3 Change API keys
+File:
+D:\LinkedINAIAgent\ai-lead-agent\.env
+
+Edit:
+- GEMINI_API_KEY
+- OPENAI_API_KEY
+
+
+2.4 Change AI prompts
+Files:
+- D:\LinkedINAIAgent\ai-lead-agent\backend\services\scoring_service.py
+- D:\LinkedINAIAgent\ai-lead-agent\backend\services\message_service.py
+
+Change here if you want to customize:
+- how leads are scored
+- outreach tone
+- follow-up tone
+- how role/company/budget/intent affect output
+
+
+2.5 Change fallback behavior when AI is down
+Files:
+- D:\LinkedINAIAgent\ai-lead-agent\backend\services\scoring_service.py
+- D:\LinkedINAIAgent\ai-lead-agent\backend\services\message_service.py
+
+Edit:
+- fallback score logic
+- fallback reason text
+- fallback outreach message
+- fallback follow-up message
+
+
+3. LEAD PORTAL CUSTOMIZATION
+============================
+
+3.1 Change lead portal steps and fields
+File:
+D:\LinkedINAIAgent\ai-lead-agent\frontend\components\LeadPortalForm.tsx
+
+This controls:
+- step 1 fields
+- step 2 fields
+- step 3 fields
+- validation
+- progress bar
+- next/previous buttons
+
+
+3.2 Change lead portal success messages
+File:
+D:\LinkedINAIAgent\ai-lead-agent\frontend\app\lead-portal\success\page.tsx
+
+This controls:
+- high score message
+- medium score message
+- low score message
+- Book a Call button text/link
+
+
+3.3 Change what gets saved from portal submissions
+Files:
+- D:\LinkedINAIAgent\ai-lead-agent\backend\routes\leads.py
+- D:\LinkedINAIAgent\ai-lead-agent\backend\schemas\lead_schema.py
+- D:\LinkedINAIAgent\ai-lead-agent\backend\models\lead.py
+
+Use these if you later want to add more portal fields.
+
+
+4. ADMIN DASHBOARD CUSTOMIZATION
+================================
+
+4.1 Change dashboard layout and cards
+Files:
+- D:\LinkedINAIAgent\ai-lead-agent\frontend\components\AdminDashboard.tsx
+- D:\LinkedINAIAgent\ai-lead-agent\frontend\components\MessagePreview.tsx
+
+Change here for:
+- layout width
+- split panels
+- preview panel behavior
+- overall dashboard design
+
+
+4.2 Change lead table columns, actions, pagination
+File:
+D:\LinkedINAIAgent\ai-lead-agent\frontend\components\LeadTable.tsx
+
+Change here for:
+- columns shown
+- page size
+- buttons
+- table row layout
+
+
+4.3 Change search and filters
+Files:
+- D:\LinkedINAIAgent\ai-lead-agent\frontend\components\LeadFilters.tsx
+- D:\LinkedINAIAgent\ai-lead-agent\frontend\components\AdminDashboard.tsx
+
+Change here for:
+- search by name/email
+- stage filter
+- source filter
+
+
+4.4 Change mobile lead card layout
+File:
+D:\LinkedINAIAgent\ai-lead-agent\frontend\components\LeadCards.tsx
+
+
+5. PIPELINE CUSTOMIZATION
+=========================
+
+5.1 Change pipeline board UI
+File:
+D:\LinkedINAIAgent\ai-lead-agent\frontend\components\PipelineBoard.tsx
+
+Change here for:
+- stage column appearance
+- card design
+- ordering
+
+
+5.2 Change lead stages
+Files:
+- D:\LinkedINAIAgent\ai-lead-agent\frontend\lib\types.ts
+- D:\LinkedINAIAgent\ai-lead-agent\backend\models\lead.py
+- D:\LinkedINAIAgent\ai-lead-agent\backend\routes\leads.py
+
+Current stages:
+- New
+- Contacted
+- Replied
+- Converted
+
+If you add or rename stages, update both frontend and backend.
+
+
+6. SERVICES MODULE CUSTOMIZATION
+================================
+
+6.1 Change public services page
+Files:
+- D:\LinkedINAIAgent\ai-lead-agent\frontend\app\services\page.tsx
+- D:\LinkedINAIAgent\ai-lead-agent\frontend\components\ServiceCatalog.tsx
+
+Change here for:
+- service card design
+- public text
+- pagination count
+- Book Service button text
+- Contact Sales button text
+- image placement
+
+
+6.2 Change service admin form
+File:
+D:\LinkedINAIAgent\ai-lead-agent\frontend\components\ServiceAdminPanel.tsx
+
+Change here for:
+- form fields
+- upload area
+- preview image section
+- admin service cards
+- Edit/Delete buttons
+- Book Now button in admin view
+
+
+6.3 Change service backend data model
+Files:
+- D:\LinkedINAIAgent\ai-lead-agent\backend\models\service.py
+- D:\LinkedINAIAgent\ai-lead-agent\backend\schemas\service_schema.py
+
+Current key fields:
+- title
+- slug
+- short_description
+- description
+- price
+- currency
+- booking_url
+- image_path
+- is_active
+
+
+6.4 Change service API logic
+File:
+D:\LinkedINAIAgent\ai-lead-agent\backend\routes\services.py
+
+This controls:
+- list services
+- create service
+- update service
+- delete service
+- upload service image
+- image validation
+- local file save logic
+
+
+6.5 Change how service images are served
+File:
+D:\LinkedINAIAgent\ai-lead-agent\backend\main.py
+
+This controls:
+- static mount path
+- local folder exposure for service images
+
+Current public image route:
+/service-media/<image_path>
+
+
+6.6 Change service image URL building in frontend
+File:
+D:\LinkedINAIAgent\ai-lead-agent\frontend\lib\api.ts
+
+Function:
+- getServiceImageUrl(...)
+
+Use this if you later change:
+- service-media route
+- image folder strategy
+- absolute vs relative image path handling
+
+
+7. LOCAL IMAGE STORAGE - EXACT FLOW
+===================================
+
+When admin uploads a service image:
+
+1. Frontend admin page sends multipart upload
+File:
+D:\LinkedINAIAgent\ai-lead-agent\frontend\components\ServiceAdminPanel.tsx
+
+2. Next admin API proxy forwards it
+File:
+D:\LinkedINAIAgent\ai-lead-agent\frontend\app\api\admin\services\[serviceId]\image\route.ts
+
+3. Backend saves the file locally
+File:
+D:\LinkedINAIAgent\ai-lead-agent\backend\routes\services.py
+
+4. Only image_path is stored in DB
+File:
+D:\LinkedINAIAgent\ai-lead-agent\backend\models\service.py
+
+5. Public services page fetches and renders the local image
+Files:
+- D:\LinkedINAIAgent\ai-lead-agent\frontend\components\ServiceCatalog.tsx
+- D:\LinkedINAIAgent\ai-lead-agent\frontend\lib\api.ts
+
+
+8. SMTP / EMAIL CUSTOMIZATION
+=============================
+
+8.1 Change Gmail SMTP settings
+File:
+D:\LinkedINAIAgent\ai-lead-agent\.env
+
+Edit:
+- SMTP_HOST
+- SMTP_PORT
+- SMTP_USERNAME
+- SMTP_PASSWORD
+- FROM_EMAIL
+
+
+8.2 Change email sending logic
+Files:
+- D:\LinkedINAIAgent\ai-lead-agent\backend\services\email_service.py
+- D:\LinkedINAIAgent\ai-lead-agent\backend\routes\outreach.py
+
+Change here for:
+- subject line
+- sender behavior
+- send timing
+
+
+9. NAVIGATION / ROUTES
+======================
+
+9.1 Change top navigation buttons
+File:
+D:\LinkedINAIAgent\ai-lead-agent\frontend\app\layout.tsx
+
+This controls links like:
+- Lead Portal
+- Services
+- Admin Login
+- Dashboard
+- Pipeline
+- Service Admin
+
+
+9.2 Change public homepage redirect
+File:
+D:\LinkedINAIAgent\ai-lead-agent\frontend\app\page.tsx
+
+Right now the public first page is the lead portal flow.
+
+
+9.3 Change route protection
+Files:
+- D:\LinkedINAIAgent\ai-lead-agent\frontend\middleware.ts
+- D:\LinkedINAIAgent\ai-lead-agent\frontend\lib\auth.ts
+
+Use these for:
+- protecting admin routes
+- changing auth rules
+- cookie behavior
+
+
+10. DATABASE AND INDEXING
+=========================
+
+10.1 Lead DB changes
+Files:
+- D:\LinkedINAIAgent\ai-lead-agent\backend\models\lead.py
+- D:\LinkedINAIAgent\ai-lead-agent\backend\database\db.py
+
+
+10.2 Service DB changes
+Files:
+- D:\LinkedINAIAgent\ai-lead-agent\backend\models\service.py
+- D:\LinkedINAIAgent\ai-lead-agent\backend\database\db.py
+
+Important:
+- if you add new service columns, also update the SQLite compatibility helper in db.py
+- this keeps old local databases working
+
+
+11. STYLING / LOOK AND FEEL
+===========================
+
+11.1 Global theme and shared layout
+Files:
+- D:\LinkedINAIAgent\ai-lead-agent\frontend\app\globals.css
+- D:\LinkedINAIAgent\ai-lead-agent\frontend\tailwind.config.ts
+- D:\LinkedINAIAgent\ai-lead-agent\frontend\app\layout.tsx
+
+
+11.2 Page-specific styling
+Edit the component/page directly:
+- dashboard components
+- service catalog
+- service admin
+- lead portal
+- pipeline
+
+
+12. SAFE CUSTOMIZATION ORDER
+============================
+
+If you want to customize without breaking things, use this order:
+
+1. Change text and labels first
+2. Change colors/layout second
+3. Change env values third
+4. Change backend model/schema only after that
+5. Restart backend and frontend after env or model changes
+
+
+13. RESTART COMMANDS AFTER CHANGES
+==================================
+
+Backend:
+cd D:\LinkedINAIAgent\ai-lead-agent\backend
+uvicorn main:app --reload --host 127.0.0.1 --port 8001
+
+Frontend:
+cd D:\LinkedINAIAgent\ai-lead-agent\frontend
+npm run dev
+
+
+14. BEST FILES TO OPEN FIRST
+============================
+
+If you only want a quick customization start, open these first:
+
+- D:\LinkedINAIAgent\ai-lead-agent\.env
+- D:\LinkedINAIAgent\ai-lead-agent\frontend\app\layout.tsx
+- D:\LinkedINAIAgent\ai-lead-agent\frontend\components\LeadPortalForm.tsx
+- D:\LinkedINAIAgent\ai-lead-agent\frontend\components\ServiceCatalog.tsx
+- D:\LinkedINAIAgent\ai-lead-agent\frontend\components\ServiceAdminPanel.tsx
+- D:\LinkedINAIAgent\ai-lead-agent\frontend\config\admin.config.ts
+- D:\LinkedINAIAgent\ai-lead-agent\backend\routes\services.py
+
+
+15. IF YOU WANT A MORE DETAILED VERSION LATER
+=============================================
+
+Possible next guides I can generate for you:
+
+- BRANDING_GUIDE.txt
+- SERVICE_IMAGE_GUIDE.txt
+- ADMIN_GUIDE.txt
+- DEPLOYMENT_GUIDE.txt
+- DB_FIELDS_GUIDE.txt
+
